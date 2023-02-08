@@ -56,6 +56,7 @@ static void usage(const char* progname) {
 }
 
 int main(int argc, char** argv) {
+  cout << "Starting display test..." << endl;
   try {
     // Initialize from flags.
     rgb_matrix::RGBMatrix::Options matrix_options;
@@ -77,6 +78,7 @@ int main(int argc, char** argv) {
 
     // Initialize matrix library.
     // Create canvas and apply GridTransformer.
+    cout << "Creating matrix..." << endl;
     RGBMatrix *canvas = CreateMatrixFromOptions(matrix_options, runtime_options);
 
     int panel_rows = config.getParallelCount();
