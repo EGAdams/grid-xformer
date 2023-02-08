@@ -3,6 +3,8 @@
 // Author: Tony DiCola
 #include "GridTransformer.h"
 
+#include <iostream>
+
 using namespace rgb_matrix;
 using namespace std;
 
@@ -37,12 +39,16 @@ void GridTransformer::SetPixel(int x, int y, uint8_t red, uint8_t green, uint8_t
   int row = y / _panel_height;
   int col = x / _panel_width;
 
+  cout << "SetPixel(" << x << ", " << y << ") -> (" << row << ", " << col << ")" << endl;
+
   // Get the panel information for this pixel.
   Panel panel = _panels[_cols*row + col];
 
   // Compute location of the pixel within the panel.
   x = x % _panel_width;
   y = y % _panel_height;
+
+  cout << "  -> (" << x << ", " << y << ")" << endl;
 
   // Perform any panel rotation to the pixel.
   // NOTE: 90 and 270 degree rotation only possible on 32 row (square) panels.
@@ -71,7 +77,8 @@ void GridTransformer::SetPixel(int x, int y, uint8_t red, uint8_t green, uint8_t
 
   // Determine y offset into the source panel based on its parrallel chain value.
   int y_offset = panel.parallel*_panel_height;
-
+  
+  cout << "  -> ( x_offset: " << x_offset << ", y_offset: " << y_offset << ")" << endl;
   _source->SetPixel(x_offset + x,
                     y_offset + y,
                     red, green, blue);
