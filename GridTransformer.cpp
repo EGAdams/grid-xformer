@@ -48,8 +48,6 @@ void GridTransformer::SetPixel(int x, int y, uint8_t red, uint8_t green, uint8_t
   x = x % _panel_width;
   y = y % _panel_height;
 
-  cout << "  -> (" << x << ", " << y << ")" << endl;
-
   // Perform any panel rotation to the pixel.
   // NOTE: 90 and 270 degree rotation only possible on 32 row (square) panels.
   if (panel.rotate == 90) {
@@ -77,8 +75,7 @@ void GridTransformer::SetPixel(int x, int y, uint8_t red, uint8_t green, uint8_t
 
   // Determine y offset into the source panel based on its parrallel chain value.
   int y_offset = panel.parallel*_panel_height;
-  
-  cout << "  -> ( x_offset: " << x_offset << ", y_offset: " << y_offset << ")" << endl;
+
   _source->SetPixel(x_offset + x,
                     y_offset + y,
                     red, green, blue);
