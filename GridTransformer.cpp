@@ -25,6 +25,7 @@ GridTransformer::GridTransformer(int width, int height, int panel_width, int pan
   // Compute number of rows and columns of panels.
   _rows = _height / _panel_height;
   _cols = _width / _panel_width;
+  cout << "GridTransformer: " << _rows << " rows, " << _cols << " cols" << endl;
   // Check panel definition list has exactly the expected number of panels.
   assert((_rows * _cols) == (int)_panels.size());
 }
