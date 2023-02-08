@@ -92,6 +92,8 @@ int main(int argc, char **argv)
 
         int panel_rows = config.getParallelCount();
         int panel_columns = config.getChainLength();
+        cout << " grid rows: " << panel_rows << endl
+             << " grid cols: " << panel_columns << endl;
         if (config.hasTransformer())
         {
             cout << "Applying transformer..." << endl;
@@ -116,6 +118,8 @@ int main(int argc, char **argv)
                 // Compute panel origin position.
                 int x = i * config.getPanelWidth();
                 int y = j * config.getPanelHeight();
+                cout << "   x: " << x << endl
+                     << "   y: " << y << endl;
                 // Print the current grid position to the top left (origin) of the panel.
                 stringstream pos;
                 pos << i << "," << j;

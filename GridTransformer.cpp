@@ -75,7 +75,7 @@ void GridTransformer::SetPixel(int x, int y, uint8_t red, uint8_t green, uint8_t
 
   // Determine y offset into the source panel based on its parrallel chain value.
   int y_offset = panel.parallel*_panel_height;
-  cout << "SetPixel: x:" << x + x_offset << " y:" << y + y_offset << endl;
+  // cout << "SetPixel: x:" << x + x_offset << " y:" << y + y_offset << endl;
   _source->SetPixel(x_offset + x,
                     y_offset + y,
                     red, green, blue);
