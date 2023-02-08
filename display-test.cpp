@@ -94,6 +94,7 @@ int main(int argc, char **argv)
         int panel_columns = config.getChainLength();
         if (config.hasTransformer())
         {
+            cout << "Applying transformer..." << endl;
             GridTransformer grid = config.getGridTransformer();
             canvas->ApplyStaticTransformer(grid);
             panel_rows = grid.getRows();
@@ -104,6 +105,7 @@ int main(int argc, char **argv)
              << " grid cols: " << panel_columns << endl;
 
         // Clear the canvas, then draw on each panel.
+        cout << "Drawing..." << endl;
         canvas->Fill(0, 255, 0);
         for (int j = 0; j < panel_rows; ++j)
         {
