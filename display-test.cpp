@@ -96,7 +96,9 @@ int main(int argc, char** argv) {
     // Clear the canvas, then draw on each panel.
     canvas->Fill(0, 0, 0);
     for (int j=0; j<panel_rows; ++j) {
+        cout << " row " << j << endl;
       for (int i=0; i<panel_columns; ++i) {
+        cout << "  col " << i << endl;
         // Compute panel origin position.
         int x = i*config.getPanelWidth();
         int y = j*config.getPanelHeight();
