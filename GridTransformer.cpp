@@ -3,8 +3,6 @@
 // Author: Tony DiCola
 #include "GridTransformer.h"
 
-#include <iostream>
-
 using namespace rgb_matrix;
 using namespace std;
 
@@ -25,7 +23,6 @@ GridTransformer::GridTransformer(int width, int height, int panel_width, int pan
   // Compute number of rows and columns of panels.
   _rows = _height / _panel_height;
   _cols = _width / _panel_width;
-  cout << "GridTransformer: " << _rows << " rows, " << _cols << " cols" << endl;
   // Check panel definition list has exactly the expected number of panels.
   assert((_rows * _cols) == (int)_panels.size());
 }
@@ -39,7 +36,6 @@ void GridTransformer::SetPixel(int x, int y, uint8_t red, uint8_t green, uint8_t
   // Figure out what row and column panel this pixel is within.
   int row = y / _panel_height;
   int col = x / _panel_width;
-
 
   // Get the panel information for this pixel.
   Panel panel = _panels[_cols*row + col];
@@ -75,7 +71,7 @@ void GridTransformer::SetPixel(int x, int y, uint8_t red, uint8_t green, uint8_t
 
   // Determine y offset into the source panel based on its parrallel chain value.
   int y_offset = panel.parallel*_panel_height;
-  // cout << "SetPixel: x:" << x + x_offset << " y:" << y + y_offset << endl;
+
   _source->SetPixel(x_offset + x,
                     y_offset + y,
                     red, green, blue);
