@@ -161,7 +161,7 @@ int main(int argc, char** argv) {
     // Create canvas and apply GridTransformer.
     RGBMatrix *canvas = CreateMatrixFromOptions(matrix_options, runtime_options);
     if (config.hasTransformer()) {
-      canvas->ApplyStaticTransformer(config.getGridTransformer());
+      canvas->ApplyPixelMapper(config.getGridTransformer());
     }
     canvas->Clear();
 

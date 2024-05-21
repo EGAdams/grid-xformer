@@ -83,7 +83,7 @@ int main(int argc, char** argv) {
     int panel_columns = config.getChainLength();
     if (config.hasTransformer()) {
       GridTransformer grid = config.getGridTransformer();
-      canvas->ApplyStaticTransformer(grid);
+      canvas->ApplyPixelMapper(grid);
       panel_rows = grid.getRows();
       panel_columns = grid.getColumns();
     }
